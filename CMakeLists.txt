@@ -10,9 +10,7 @@ option(LUNCHBOX_FORCE_OPENMP "Force usage of buggy OpenMP implementation" OFF)
 
 mark_as_advanced(LUNCHBOX_FORCE_OPENMP)
 
-list(APPEND CMAKE_MODULE_PATH ${LunchBox_SOURCE_DIR}/CMake)
-
-include(revision)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake)
 
 set(RELEASE_VERSION OFF) # OFF or 'Mm0' ABI version
 set(VERSION_MAJOR "0")
@@ -30,14 +28,6 @@ else()
 #  set(VERSION_ABI ${VERSION_MAJOR}${VERSION_MINOR}${VERSION_PATCH})
   set(VERSION_ABI ${VERSION_MINOR}${VERSION_PATCH})
 endif()
-
-if(NOT CMAKE_BUILD_TYPE)
-  if(RELEASE_VERSION)
-    set(CMAKE_BUILD_TYPE Release)
-  else()
-    set(CMAKE_BUILD_TYPE Debug)
-  endif()
-endif(NOT CMAKE_BUILD_TYPE)
 
 include(Common)
 include(DoxygenSetup)
@@ -86,8 +76,8 @@ add_subdirectory(lunchbox)
 add_subdirectory(tests)
 include(DoxygenRule) # must be after all targets
 
-install(FILES CMake/FindLunchbox.cmake CMake/FindHWLOC.cmake
-  DESTINATION share/LunchBox/CMake COMPONENT dev)
+install(FILES CMake/FindLunchbox.cmake DESTINATION ${CMAKE_MODULE_INSTALL_PATH}
+  COMPONENT dev)
 
 message(STATUS "Configured with ${CMAKE_BUILD_TYPE}${LUNCHBOX_FEATURES}")
 
