@@ -1,0 +1,82 @@
+
+# Copyright (c) 2012 Stefan Eilemann <eile@eyescale.ch>
+
+set(LUNCHBOX_PUBLIC_HEADERS 
+  ${OUTPUT_INCLUDE_DIR}/lunchbox/version.h 
+  ${DEFINES_FILE}
+  api.h
+  atomic.h
+  base.h
+  bitOperation.h
+  buffer.h
+  clock.h
+  compiler.h
+  condition.h
+  debug.h
+  defines.h
+  dso.h
+  file.h
+  hash.h
+  indexIterator.h
+  init.h
+  launcher.h
+  lfQueue.h
+  lfVector.h
+  lfVectorIterator.h
+  lock.h
+  lockable.h
+  log.h
+  memoryMap.h
+  monitor.h
+  mtQueue.h
+  nonCopyable.h
+  omp.h
+  os.h
+  perThread.h
+  perThreadRef.h
+  pool.h
+  refPtr.h
+  referenced.h
+  requestHandler.h
+  rng.h
+  scopedMutex.h
+  serializable.h
+  sleep.h
+  spinLock.h
+  stdExt.h
+  thread.h
+  threadID.h
+  timedLock.h
+  types.h
+  uint128_t.h
+  uuid.h
+  )
+
+set(LUNCHBOX_SOURCES
+  atomic.cpp
+  clock.cpp
+  condition.cpp
+  condition_w32.ipp
+  debug.cpp
+  dso.cpp
+  file.cpp
+  init.cpp
+  launcher.cpp
+  lock.cpp
+  log.cpp
+  memoryMap.cpp
+  omp.cpp
+  referenced.cpp
+  requestHandler.cpp
+  rng.cpp
+  spinLock.cpp
+  sleep.cpp
+  thread.cpp
+  threadID.cpp
+  timedLock.cpp
+  uint128_t.cpp
+  uuid.cpp
+  version.cpp
+  )
+
+set(LUNCHBOX_ALL ${LUNCHBOX_PUBLIC_HEADERS} ${LUNCHBOX_SOURCES})
